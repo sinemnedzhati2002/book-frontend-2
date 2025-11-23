@@ -31,15 +31,20 @@ const API = 'https://book-backend-2-ba5q.onrender.com/api/books'
 onMounted(async () => {
   try {
     const response = await fetch(API)
-    if (!response.ok) {
-      throw new Error('HTTP Error ' + response.status)
-    }
-    books.value = await response.json()
+    const data: string[] = await response.json()
+
+    // Strings vom Backend in Book-Objekte umwandeln
+    books.value = data.map((title, index) => ({
+      id: index + 1,
+      title,
+      author: 'Unbekannt'
+    }))
   } catch (e: any) {
     error.value = e.message
   } finally {
     isLoading.value = false
   }
 })
+
 </script>
 
