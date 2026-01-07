@@ -219,6 +219,10 @@ function formatDateForDisplay(dateStr: string | null): string {
     return dateStr
   }
 }
+function toDateInputValue(dateStr: string | null): string | null {
+  if (!dateStr) return null
+  return dateStr.slice(0, 10)
+}
 
 async function loadBooks() {
   isLoading.value = true
@@ -308,10 +312,14 @@ function startEdit(book: Book) {
   form.value.author = book.author
   form.value.genre = book.genre ?? ''
   form.value.rating = book.rating
-  form.value.plannedOn = book.plannedOn
   form.value.status = book.status
-  form.value.finishedOn = book.finishedOn
+
+
+  form.value.plannedOn = toDateInputValue(book.plannedOn)
+  form.value.finishedOn = toDateInputValue(book.finishedOn)
 }
+
+
 
 async function setStatus(id: number, status: ReadingStatus) {
   try {
