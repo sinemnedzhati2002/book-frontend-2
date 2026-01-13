@@ -1,3 +1,56 @@
+
+
+
+
+
+
+
+
+
+**__**Book Tracker - Webtechnologien Projekt**__** 
+
+Dieses Projekt ist im Rahmen der Vorlesung Webtechnologien entstanden. Es handelt sich um eine Webanwendung zur Verwaltung von Büchern mit Frontend (Vue 3) und Backend (Spring Boot), die über eine REST-API miteinander kommunizieren.
+
+Use Cases Die Anwendung unterstützt folgende Use Cases:
+
+1. Alle Bücher anzeigen
+2. Bücher filtern (nach Titel, Autor, Genre)
+3. neue Buch anlegen
+4. Buch bearbeiten
+5. Buch löschen
+6. To-Read-Liste (Bücher, die noch gelesen werden sollen)
+7. Fertig gelesene Liste
+8. Status ändern (To-Read <-> Fertig)
+9. Datumseingaben
+   - geplantes Lese-Datum
+   - Fertigstellungsdatum (wird automatisch gesetzt)
+   
+Bereitstellungs-Backend: https://book-backend-2-ba5q.onrender.com 
+
+Frontend: https://book-frontend-2-qbx4.onrender.com
+
+Autorin: Sinem Nedzhati
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # book-frontend-2
 
 This template should help get you started developing with Vue 3 in Vite.
