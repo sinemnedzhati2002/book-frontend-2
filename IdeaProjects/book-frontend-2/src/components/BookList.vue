@@ -320,16 +320,25 @@ function startEdit(book: Book) {
 }
 
 
-
 async function setStatus(id: number, status: ReadingStatus) {
   try {
-    const res = await fetch(`${API_BASE}/${id}/status?status=${status}`, { method: 'PATCH' })
-    if (!res.ok) throw new Error(`Fehler beim Status-Update: ${res.status}`)
+    const res = await fetch(`${API_BASE}/${id}/status`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status })
+    })
+
+    if (!res.ok) {
+      const text = await res.text()
+      throw new Error(`Fehler beim Status-Update: ${res.status} - ${text}`)
+    }
+
     await loadBooks()
   } catch (e: any) {
     error.value = e.message ?? 'Unbekannter Fehler beim Status-Update'
   }
 }
+
 
 async function deleteBook(id: number) {
   if (!confirm('Buch wirklich löschen?')) return

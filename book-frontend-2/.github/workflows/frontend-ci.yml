@@ -15,24 +15,15 @@ jobs:
         working-directory: IdeaProjects/book-frontend-2
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: npm
           cache-dependency-path: IdeaProjects/book-frontend-2/package-lock.json
 
-      - name: Install
-        run: npm ci
-
-      - name: Typecheck
-        run: npm run type-check
-
-      - name: Unit Tests
-        run: npm run test:unit
-
-      - name: Build
-        run: npm run build-only
+      - run: npm ci
+      - run: npm run type-check
+      - run: npm run test:unit
+      - run: npm run build-only
